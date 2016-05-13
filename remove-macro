@@ -1,0 +1,130 @@
+Sub Remove_excessCharacters()
+' Removes extraneous hash setup from SharePoint exported workbook
+Dim Again As Integer
+Dim Again1 As Range
+On Error GoTo Nope
+Set Again1 = Cells.Find(What:="?;#", LookAt:=xlPart)
+If Again1 Is Nothing Then
+    Set Again1 = Cells.Find(What:=";#?", LookAt:=xlPart)
+    If Again1 Is Nothing Then
+        GoTo Nope
+    End If
+End If
+'change the range to match data if error
+Range("F1").Select
+Again = 1
+Do While Again < 5
+
+Set Again1 = Cells.Find(What:=";#0", LookAt:=xlPart)
+    Do While Not Again1 Is Nothing
+        Cells.Replace What:=";#0", Replacement:=";#", LookAt:=xlPart, _
+            SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:=False, _
+            ReplaceFormat:=False
+        Set Again1 = Cells.Find(What:=";#0", LookAt:=xlPart)
+    Loop
+Set Again1 = Cells.Find(What:=";#1", LookAt:=xlPart)
+    Do While Not Again1 Is Nothing
+        Cells.Replace What:=";#1", Replacement:=";#", LookAt:=xlPart, _
+            SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:=False, _
+            ReplaceFormat:=False
+        Set Again1 = Cells.Find(What:=";#1", LookAt:=xlPart)
+    Loop
+Set Again1 = Cells.Find(What:=";#2", LookAt:=xlPart)
+    Do While Not Again1 Is Nothing
+        Cells.Replace What:=";#2", Replacement:=";#", LookAt:=xlPart, _
+            SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:=False, _
+            ReplaceFormat:=False
+        Set Again1 = Cells.Find(What:=";#2", LookAt:=xlPart)
+    Loop
+Set Again1 = Cells.Find(What:=";#3", LookAt:=xlPart)
+    Do While Not Again1 Is Nothing
+        Cells.Replace What:=";#3", Replacement:=";#", LookAt:=xlPart, _
+            SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:=False, _
+            ReplaceFormat:=False
+        Set Again1 = Cells.Find(What:=";#3", LookAt:=xlPart)
+    Loop
+Set Again1 = Cells.Find(What:=";#4", LookAt:=xlPart)
+    Do While Not Again1 Is Nothing
+        Cells.Replace What:=";#4", Replacement:=";#", LookAt:=xlPart, _
+            SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:=False, _
+            ReplaceFormat:=False
+        Set Again1 = Cells.Find(What:=";#4", LookAt:=xlPart)
+    Loop
+Set Again1 = Cells.Find(What:=";#5", LookAt:=xlPart)
+    Do While Not Again1 Is Nothing
+        Cells.Replace What:=";#5", Replacement:=";#", LookAt:=xlPart, _
+            SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:=False, _
+            ReplaceFormat:=False
+        Set Again1 = Cells.Find(What:=";#5", LookAt:=xlPart)
+    Loop
+Set Again1 = Cells.Find(What:=";#6", LookAt:=xlPart)
+    Do While Not Again1 Is Nothing
+        Cells.Replace What:=";#6", Replacement:=";#", LookAt:=xlPart, _
+            SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:=False, _
+            ReplaceFormat:=False
+        Set Again1 = Cells.Find(What:=";#6", LookAt:=xlPart)
+    Loop
+Set Again1 = Cells.Find(What:=";#7", LookAt:=xlPart)
+    Do While Not Again1 Is Nothing
+        Cells.Replace What:=";#7", Replacement:=";#", LookAt:=xlPart, _
+            SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:=False, _
+            ReplaceFormat:=False
+        Set Again1 = Cells.Find(What:=";#7", LookAt:=xlPart)
+    Loop
+Set Again1 = Cells.Find(What:=";#8", LookAt:=xlPart)
+    Do While Not Again1 Is Nothing
+        Cells.Replace What:=";#8", Replacement:=";#", LookAt:=xlPart, _
+            SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:=False, _
+            ReplaceFormat:=False
+        Set Again1 = Cells.Find(What:=";#8", LookAt:=xlPart)
+    Loop
+Set Again1 = Cells.Find(What:=";#9", LookAt:=xlPart)
+    Do While Not Again1 Is Nothing
+        Cells.Replace What:=";#9", Replacement:=";#", LookAt:=xlPart, _
+            SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:=False, _
+            ReplaceFormat:=False
+        Set Again1 = Cells.Find(What:=";#9", LookAt:=xlPart)
+    Loop
+    Again = Again + 1
+Loop
+Set Again1 = Cells.Find(What:="#;#", LookAt:=xlPart)
+Do While Not Again1 Is Nothing
+    Cells.Replace What:="#;#", Replacement:=" | ", LookAt:=xlPart, _
+        SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:=False, _
+        ReplaceFormat:=False
+    Set Again1 = Cells.Find(What:="#;#", LookAt:=xlPart)
+Loop
+Set Again1 = Cells.Find(What:=";#", LookAt:=xlPart)
+Do While Not Again1 Is Nothing
+    Cells.Replace What:=";#", Replacement:="", LookAt:=xlPart, _
+        SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:=False, _
+        ReplaceFormat:=False
+    Set Again1 = Cells.Find(What:=";#", LookAt:=xlPart)
+Loop
+Set Again1 = Cells.Find(What:="#;", LookAt:=xlPart)
+Do While Not Again1 Is Nothing
+    Cells.Replace What:="#;", Replacement:="", LookAt:=xlPart, _
+        SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:=False, _
+        ReplaceFormat:=False
+    Set Again1 = Cells.Find(What:="#;", LookAt:=xlPart)
+Loop
+Set Again1 = Cells.Find(What:="#", LookAt:=xlPart)
+Do While Not Again1 Is Nothing
+    Cells.Replace What:="#", Replacement:="", LookAt:=xlPart, _
+        SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:=False, _
+        ReplaceFormat:=False
+    Set Again1 = Cells.Find(What:="#", LookAt:=xlPart)
+Loop
+Set Again1 = Cells.Find(What:="; |", LookAt:=xlPart)
+Do While Not Again1 Is Nothing
+    Cells.Replace What:="; |", Replacement:=" |", LookAt:=xlPart, _
+        SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:=False, _
+        ReplaceFormat:=False
+    Set Again1 = Cells.Find(What:="; |", LookAt:=xlPart)
+Loop
+Range("F1").Select
+MsgBox "Extraneous hash data has been deleted."
+Exit Sub
+Nope:
+    MsgBox "This is not the proper spreadsheet setup to run this macro."
+End Sub
